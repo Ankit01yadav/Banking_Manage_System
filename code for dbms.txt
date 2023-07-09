@@ -1,0 +1,117 @@
+create database bankdatabase;
+use bankdatabase;
+create table customer(
+CUST_ID int(50) primary key,
+FIRST_NAME varchar(10) NOT NULL,
+LAST_NAME VARCHAR(20) NOT NULL,
+DOB date NOT NULL,
+ADDRESS VARCHAR (20),
+CONTACT_NO INT(40) NOT NULL
+);
+desc customer;
+create table bank(
+BANK_NAME VARCHAR(50) NOT NULL,
+BRANCH VARCHAR(15) NOT NULL,
+BRANCH_CODE INT (20) PRIMARY KEY);
+DESC BANK;
+select* from bank;
+
+create table Loan(
+loan_no int(50), 
+loan_amt int(30) default NULL);
+
+DESC LOAN;
+select* from loan;
+
+
+
+desc customer;
+create table transact(
+TRANSACT_ID INT (20) PRIMARY KEY ,
+TRANSACT_DATE DATE  DEFAULT NULL
+);
+
+desc transact;
+alter table loan add LOAN_DATE DATE;
+
+CREATE TABLE Accounts
+(
+BALANCE INT(20) NOT NULL CHECK (BALANCE >=5000),
+Acc_no INT (15) NOT NULL PRIMARY KEY
+);
+show tables;
+
+desc customer;
+desc transact;
+desc Accounts;
+desc bank;
+desc loan;
+select * from customer;
+
+select* from loan;
+alter table customer add gender varchar(1) check(gender in('M','F')) default 'M';
+UPDATE CUSTOMER set contact_no=45 where cust_id=23560;
+desc transact;
+INSERT into customer VALUES(23560,"SHREYANSH","MALLICK",'2002-12-06',"GREATER NOIDA",678378,"M");
+insert into customer values(23440,"Arihant","Jain",'2003-05-30',"Hisar",1234, "M");
+insert into customer values(36542,"Rahul","kumar",'2012-04-10',"Kolkata",34567383,"M");
+insert into customer values(36523,"Amit","kumar",'2015-11-10',"Bihar",2876900,"M");
+insert into customer values(36525,"Anjali","yadav",'2015-07-12',"Ghaziabad",287691056,"F");
+insert into customer values(36530,"Ram","kumar",'2015-03-02',"Noida",287645085,"M");
+insert into customer values(36515,"Raju","goyal",'2015-03-12',"delhi",287020056,"M");
+insert into customer values(36520,"Priyam","kumar",'2015-03-12',"delhi",602590056,"M");
+insert into customer values(36590,"	Shreya","kumar",'2015-03-25',"kolkata",287690458,"F");
+select * from customer;
+DELETE FROM CUSTOMER WHERE CUST_ID=23560; 
+UPDATE CUSTOMER SET CONTACT_NO=789338133 WHERE CUST_ID=23440;
+insert into transact values(23440,'2020-05-20');
+insert into transact values(36542,'2021-07-30');
+insert into transact values(36523,'2022-04-19');
+insert into transact values(36525,'2022-11-18');
+insert into transact values(36520,'2021-10-14');
+insert into transact values(36590,'2022-02-10');
+delete from transact where transact_id=45847;
+delete from transact where transact_id=45850;
+delete from transact where transact_id=45858;
+delete from transact where transact_id=45862;
+delete from transact where transact_id=45868;
+delete from transact where transact_id=45896;
+SELECT * FROM TRANSACT;
+insert into accounts values(300000,23440);
+insert into accounts values(350000,36542);
+insert into accounts values(240000,36525);
+insert into accounts values(240000,36530);
+insert into accounts values(240000,36523);
+insert into accounts values(240000,36515);
+insert into accounts values(240000,36520);
+insert into accounts values(240000,36590);
+SELECT * FROM ACCOUNTS;
+insert into loan values(23440,2573246);
+INSERT INTO LOAN VALUES(36520,257000);
+delete from loan where loan_no=240000;
+delete from loan where loan_no=250000;
+
+
+SELECT * FROM LOAN;
+INSERT INTO BANK VALUES("HDFC","TILAK NAGAR",14536);
+INSERT INTO BANK VALUES("SBI","JANAKPURI",14586);
+INSERT INTO BANK VALUES("PNB","DWARKA",14512);
+INSERT INTO BANK VALUES("SHIVALIK","SAHARANPUR",14565);
+alter table bank add cust_id int;
+SELECT *FROM BANK;
+DESC ACCOUNTS;
+delete from accounts where acc_no=2525479;
+delete from accounts where acc_no=2573246;
+
+delete from accounts where acc_no=2578469; 
+delete from customer where cust_id=23440 ;
+
+ALTER TABLE accounts ADD constraint nptel foreign key(acc_no) references CUSTOMER(CUST_ID);
+
+alter table bank add constraint c foreign key(cust_id) references customer(cust_id);
+
+update bank set cust_id =23440 where branch_code=14536;
+alter table transact add constraint b foreign key(transact_id) references customer(cust_id);
+update bank set branch="PNB" where branch_code=14586;
+update bank set cust_id=36542 where branch_code=14565;
+delete from customer where cust_id=23440
