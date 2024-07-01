@@ -17,7 +17,7 @@ This is a simple Banking Management System implemented in Python, using MySQL fo
 - Python 3.x
 - MySQL Server
 - MySQL Connector for Python.
-- 
+
 # Contributing
 Fork the repository.
 Create a new branch (git checkout -b feature-branch).
