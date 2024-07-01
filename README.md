@@ -29,5 +29,5 @@ Open a Pull Request.
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgements
-MySQL Connector for Python
-Python MySQL Tutorial.
+- MySQL Connector for Python.
+- Python MySQL Tutorial.
