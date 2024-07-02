@@ -19,11 +19,11 @@ This is a simple Banking Management System implemented in Python, using MySQL fo
 - MySQL Connector for Python.
 
 # Contributing
-Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Commit your changes (git commit -m 'Add some feature').
-Push to the branch (git push origin feature-branch).
-Open a Pull Request.
+- Fork the repository.
+- Create a new branch (git checkout -b feature-branch).
+- Commit your changes (git commit -m 'Add some feature').
+- Push to the branch (git push origin feature-branch).
+- Open a Pull Request.
 
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
